@@ -11,4 +11,5 @@ I am like a user I can create a list with daily business that I need to do.
 5. I can redact the row with business;
 6. I can save list and changes there;
 7. All program must use exe. format;
+
  Using templet https://www.youtube.com/watch?v=Mb3S2IK3NzI
