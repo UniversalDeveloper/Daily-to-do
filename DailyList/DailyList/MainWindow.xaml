@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="Daily cases" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dgToDoList"  FontSize="20" FontWeight="Bold" Margin="10">
+        <DataGrid x:Name="dgToDoList"  FontSize="20" FontWeight="Bold" Margin="10" Loaded="dgToDoList_Loaded" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="True" Header="Creation Data" Width="180"/>
-                <DataGridCheckBoxColumn IsReadOnly="False" Header="Done" Width="80"/>
-                <DataGridTextColumn IsReadOnly="False" Header="Case wthat need to do" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path= CreationData}" IsReadOnly="True" Header="Creation Data" Width="180"/>
+                <DataGridCheckBoxColumn Binding="{Binding Path=IsDone }" IsReadOnly="False" Header="Done" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Path=TextOfTasc}" IsReadOnly="False" Header="Case wthat need to do" Width="*"/>
             </DataGrid.Columns>
             
 
