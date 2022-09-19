@@ -34,7 +34,18 @@ namespace DailyList
         private void dgToDoList_Loaded(object sender, RoutedEventArgs e)// here will be loaded tascs from file created before
         {
             fileIOService = new FileIOService(PATH);
-            containerForListCases = fileIOService.LoadData();
+            try
+            {
+                containerForListCases = fileIOService.LoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Close();
+                
+            }
+            
+
             dgToDoList.ItemsSource = containerForListCases;// create link of our containerList with vive of Window forme
             containerForListCases.ListChanged += ContainerForListCases_ListChanged;
 
