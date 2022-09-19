@@ -13,7 +13,8 @@ namespace DailyList.DataSaving
     class FileIOService
     {  public readonly string PATH;
         public FileIOService(string path) 
-        { PATH = path;
+        { 
+            PATH = path;
         }      
         public void SaveData(BindingList<DataModelOfDailyList> containerForListCases)
         {
@@ -23,7 +24,7 @@ namespace DailyList.DataSaving
                 saveToFile.Write(saveInFile);
             }
          }
-        public BindingList<DataModelOfDailyList> LoudData()
+        public BindingList<DataModelOfDailyList> LoadData()
         {
             var fileExist = File.Exists(PATH);
             if (!fileExist)

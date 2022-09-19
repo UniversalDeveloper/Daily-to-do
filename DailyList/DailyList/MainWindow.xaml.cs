@@ -1,4 +1,5 @@
 ﻿using DailyList.DataModel;
+using DailyList.DataSaving;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,8 @@ namespace DailyList
     public partial class MainWindow : Window
     {
         private BindingList<DataModelOfDailyList> containerForListCases;
+        private FileIOService fileIOService;
+        private readonly string PATH = $"{Environment.CurrentDirectory}.\\DalyDataList.json";
         public MainWindow()
         {
             InitializeComponent();
@@ -30,11 +33,8 @@ namespace DailyList
 
         private void dgToDoList_Loaded(object sender, RoutedEventArgs e)// here will be loaded tascs from file created before
         {
-            containerForListCases = new BindingList<DataModelOfDailyList>()
-            {
-                new DataModelOfDailyList() { TextOfTasc= "kmfksfk" },
-                new DataModelOfDailyList() { TextOfTasc = "sffsfd" }
-            }; //test bindig window form and some data review
+            fileIOService = new FileIOService(PATH);
+            containerForListCases = fileIOService.LoadData();
             dgToDoList.ItemsSource = containerForListCases;// create link of our containerList with vive of Window forme
             containerForListCases.ListChanged += ContainerForListCases_ListChanged;
 
