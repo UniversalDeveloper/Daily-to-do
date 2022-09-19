@@ -23,6 +23,20 @@ namespace DailyList.DataSaving
                 saveToFile.Write(saveInFile);
             }
          }
+        public BindingList<DataModelOfDailyList> LoudData()
+        {
+            var fileExist = File.Exists(PATH);
+            if (!fileExist)
+            {
+                File.CreateText(PATH).Dispose();
+                return new BindingList<DataModelOfDailyList>();
+            }
+            using (var readStringFromFile = File.OpenText(PATH))
+            {
+                string textFromFile = readStringFromFile.ReadToEnd();
+                return JsonConvert.DeserializeObject<BindingList<DataModelOfDailyList>>(textFromFile);
+            }
+        }
 
     }
 }
