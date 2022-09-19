@@ -16,7 +16,7 @@ namespace DailyList.DataSaving
         { 
             PATH = path;
         }      
-        public void SaveData(BindingList<DataModelOfDailyList> containerForListCases)
+        public void SaveData(object containerForListCases)
         {
             using (StreamWriter saveToFile = File.CreateText(PATH))
             {

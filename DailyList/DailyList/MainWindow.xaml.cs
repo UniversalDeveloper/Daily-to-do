@@ -44,8 +44,6 @@ namespace DailyList
                 Close();
                 
             }
-            
-
             dgToDoList.ItemsSource = containerForListCases;// create link of our containerList with vive of Window forme
             containerForListCases.ListChanged += ContainerForListCases_ListChanged;
 
@@ -54,10 +52,22 @@ namespace DailyList
 
         private void ContainerForListCases_ListChanged(object sender, ListChangedEventArgs e)
         {
-            if (e.ListChangedType == ListChangedType.ItemAdded || e.ListChangedType == ListChangedType.ItemDeleted || e.ListChangedType == ListChangedType.ItemChanged) 
-            { }
-            
+            if (e.ListChangedType == ListChangedType.ItemAdded || e.ListChangedType == ListChangedType.ItemDeleted || e.ListChangedType == ListChangedType.ItemChanged)
+            {
+                try
+                {
+                    fileIOService.SaveData(sender);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    Close();
+
+                }
             }
+            
+           
         }
+        
     }
 }
