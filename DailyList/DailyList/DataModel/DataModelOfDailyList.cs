@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace DailyList.DataModel
 {
-    class DataModelOfDailyList : INotifyPropertyChanged 
+    class DataModelOfDailyList : INotifyPropertyChanged
     {
         private bool isDone;
         private string textOfTasc;
+
+        [JsonProperty(PropertyName = "creationData")]
         public DateTime CreationData { get; set; } = DateTime.Now;      
 
+        [JsonProperty(PropertyName = "isDone")]
         public bool IsDone
         {
             get { return isDone; }
@@ -22,8 +26,8 @@ namespace DailyList.DataModel
                 isDone = value;
                 OnPropertyChanged("IsDone");
             }
-        }        
-
+        }
+        [JsonProperty(PropertyName = "textOfTasc")]
         public string TextOfTasc
         {
             get { return textOfTasc; }
