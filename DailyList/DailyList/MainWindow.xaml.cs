@@ -25,7 +25,7 @@ namespace DailyList
     {
         private BindingList<DataModelOfDailyList> containerForListCases;
         private FileIOService fileIOService;
-        private readonly string PATH = $"{Environment.CurrentDirectory}.\\DalyDataList.json";
+        private readonly string PATH = $"{Environment.CurrentDirectory}.\\DalyDataList.json";// will creates new file does not exist before
         public MainWindow()
         {
             InitializeComponent();
