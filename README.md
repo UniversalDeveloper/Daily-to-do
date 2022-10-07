@@ -11,4 +11,5 @@ I am like a user I can create a list with daily business that I need to do.
 5. I can redact the row with business;
 6. I can save list and changes there;
 7. All program must use exe. format;
+## The lick of last version : https://github.com/UniversalDeveloper/Daily-to-do/releases/tag/v1.0.0
 
